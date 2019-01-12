@@ -2,12 +2,17 @@ import React, { Component } from "react"
 
 export class SearchBar extends Component {
 
+  state = {
+    term: null
+  }
+
   onInputChange = event => {
-    console.log(event.target.value)
+    this.setState({ term: event.target.value })
   }
 
   onSubmitForm = event => {
     event.preventDefault()
+    this.props.onSubmit(this.state.term)
   }
 
   render() {
